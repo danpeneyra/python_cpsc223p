@@ -4,10 +4,20 @@
 # Assignment: Module 9 Assignment 1
 
 population_dict = {
-cities = "" : populations = 0}
+}
 
-while input != 'q':
+while True:
     city = input("What is the next city? (enter q to quit) "
-    population_dict["cities"] = city
-    popultion = input(f"What is the population of {city}")
-    population_dict.append 
+    if city == 'q':
+    	break
+    population = input("What is the population of {city}")
+    population_dict[city] = int(population)
+    max_small_town = input("What is the largest population for a small town? ")
+
+with open('populationdata.txt', 'w') as out_file:
+	out_file.write("Big cities:\n")
+    
+    for city in population_dict:
+        if population_dict[city] > max_small_town:
+			out_file.write(f"{city},{population_dict[city]}\n")
+    
